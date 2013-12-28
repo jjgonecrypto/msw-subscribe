@@ -1,0 +1,28 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "keywords": [
+    ""
+  ],
+  "devDependencies": {
+    "mocha": "=1.13.0",
+    "chai":  "=1.8.1"
+  },
+  "engines": {
+    "node": ">0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/[user]/[repo].git"
+  },
+  "bugs": {
+    "url": "https://github.com/[user]/[repo]/issues"
+  },
+  "author": "justin j. moses",
+  "license": "BSD-2-Clause"
+}
