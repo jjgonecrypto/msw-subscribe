@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "msw-subscribe",
   "version": "0.0.1",
-  "description": "",
+  "description": "node application to notify over email upcoming swell alerts that matches a certain criteria",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive"
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/[user]/[repo].git"
+    "url": "https://github.com/justinjmoses/msw-subscribe.git"
   },
   "bugs": {
-    "url": "https://github.com/[user]/[repo]/issues"
+    "url": "https://github.com/justinjmoses/msw-subscribe/issues"
   },
   "author": "justin j. moses",
   "license": "BSD-2-Clause"
