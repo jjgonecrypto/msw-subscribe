@@ -9,6 +9,10 @@
   "keywords": [
     ""
   ],
+  "dependencies" : {
+    "sendgrid": "=1.0.0-rc.1.0",
+    "msw-api": "=0.0.8"
+  },
   "devDependencies": {
     "mocha": "=1.13.0",
     "chai":  "=1.8.1"
