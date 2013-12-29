@@ -1,4 +1,8 @@
 {
-    "spaces": 4,
-    "strict": true
+    "indent": 4,
+    "undef": true,
+    "strict": true,
+    "trailing": true,
+    "node": true,
+    "quotmark": "single"
 }
