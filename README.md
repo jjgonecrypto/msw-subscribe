@@ -14,8 +14,11 @@ var msw = require('msw-subscription');
 
 var subscription = mswSubscribe.create({
   apiKey: 'YOUR API KEY',
-  spots: [1, 23, 55], //collection of spots to chck
-  query: {
+  units: 'us'
+});
+
+subscription.addSpot(2544,
+  {
       minPeriod: 10,
       minBreakingHeight: 3,
       minSolidStars: 2,
@@ -24,5 +27,19 @@ var subscription = mswSubscribe.create({
   } //see msw-api package for query details
 });
 
-subscription.query().send({ email: 'recipient@example.com' });
+
+subscription.query().then(function () {
+  
+  subscription.send({ 
+    email: 'recipient@example.com', 
+    from: 'someone@example.com',
+    subject: 'incoming swell alert'
+  }).then(function () {
+    //sent
+  }, function (err) { 
+    console.log(err);
+  });
+}, function (err) {
+  console.log(err);
+});
 ```

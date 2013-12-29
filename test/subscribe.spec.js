@@ -23,9 +23,9 @@ describe('subscriber', function () {
             }
         },
         {
-            id: 358,
+            id: 2544,
             query: {
-                minFadedStars: 3
+                minSolidStars: 2
             }
         }
     ];
@@ -92,6 +92,7 @@ describe('subscriber', function () {
                         var array = subscription.toArray();
                         array.forEach(function (spot) {
                             expect(spot.forecast).to.not.be.undefined;
+                            expect(spot.matches).to.not.be.undefined;
                         });
                     }, function (err) {
                         throw err;
@@ -102,7 +103,11 @@ describe('subscriber', function () {
             describe('send()', function () {
                 it('must send emails as required', function () {
                     subscription.query().then(function () {
-                        subscription.send({ email: 'test@example.com' });
+                        subscription.send({ email: 'test@example.com' }).then(function () {
+                            //email sent...
+                        }, function (err) {
+                            throw err;
+                        });
                     }, function (err) {
                         throw err;
                     });
