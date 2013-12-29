@@ -8,13 +8,12 @@ var mocks = require('../node_modules/msw-api/test/mocks.js');
 
 var subscribe = require('../lib/subscribe.js');
 
-
 describe('subscriber', function () {
     var subscription;
     var config = { apiKey: 'abcdef' };
     var spots = [
         {
-            id: 12345,
+            id: 169,
             query: {
                 minPeriod: 10,
                 minBreakingHeight: 3,
@@ -23,7 +22,7 @@ describe('subscriber', function () {
             }
         },
         {
-            id: 12,
+            id: 358,
             query: {
                 minFadedStars: 3
             }
@@ -46,8 +45,8 @@ describe('subscriber', function () {
 
         beforeEach(function () {
             subscription = subscribe.create(config);
-            spots.forEach(function (spotId) {
-                mockSpot(spotId, 'us', 200);
+            spots.forEach(function (spot) {
+                mockSpot(spot.id, 'us', 200);
             });
         });
 
