@@ -7,6 +7,7 @@ var nock = require('nock');
 var mocks = require('../node_modules/msw-api/test/mocks.js');
 
 var subscribe = require('../lib/subscribe.js');
+var Subscription = subscribe.Subscription;
 
 describe('subscriber', function () {
     var subscription;
@@ -32,11 +33,11 @@ describe('subscriber', function () {
     describe('create()', function () {
         it('must handle basic scenarios', function () {
             subscription = subscribe.create(config);
+            expect(subscription).to.be.instanceof(Subscription);
         });
     });
 
     describe('main functionality', function () {
-
         //todo: port this to msw-api 0.0.9
         function mockSpot(spotId, units, response) {
             var mocked = nock('http://magicseaweed.com').get('/api/' + config.apiKey + '/forecast/?spot_id=' + spotId + '&units=' + units);
@@ -50,34 +51,61 @@ describe('subscriber', function () {
             });
         });
 
+        function addAllSpots() {
+            spots.forEach(function (spot) {
+                subscription.addSpot(spot.id, spot.query);
+            });
+        }
+
         describe('addSpot()', function () {
+            
             it('must support adding a spot', function () {
-                spots.forEach(function (spot) {
-                    subscription.addSpot(spot.id, spot.query);
-                });
+                addAllSpots();
+                expect(subscription.size()).to.equal(2);
+            });
+
+            it('must only record one spot for each unique spotId', function () {
+                addAllSpots();
+                addAllSpots();
+                expect(subscription.size()).to.equal(2);
+            });
+        });
+
+        describe('toArray()', function () {
+            beforeEach(function () {
+                addAllSpots();
+            });
+
+            it('must output all spots as an array', function () {
+                expect(subscription.toArray()).to.have.length(2);
             });
         });
 
         describe('querying & sending', function () {
             beforeEach(function () {
-                spots.forEach(function (spot) {
-                    subscription.addSpot(spot.id, spots.query);
-                });
+                addAllSpots();
             });
 
             describe('query()', function () {
                 it('must query all if no parameter given', function () {
-                    subscription.query();
+                    subscription.query().then(function () {
+                        var array = subscription.toArray();
+                        array.forEach(function (spot) {
+                            expect(spot.forecast).to.not.be.undefined;
+                        });
+                    }, function (err) {
+                        throw err;
+                    });
                 });
             });
 
             describe('send()', function () {
-                beforeEach(function () {
-                    subscription.query(); //load all forecasts
-                });
-
                 it('must send emails as required', function () {
-                    subscription.send({ email: 'test@example.com' });
+                    subscription.query().then(function () {
+                        subscription.send({ email: 'test@example.com' });
+                    }, function (err) {
+                        throw err;
+                    });
                 });
             });
         });
