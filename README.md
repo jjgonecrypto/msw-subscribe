@@ -1,7 +1,7 @@
 msw-subscribe
 =============
 
-[![Build Status](https://travis-ci.org/justinjmoses/xxx.png)](https://travis-ci.org/justinjmoses/xxx)
+[![Build Status](https://travis-ci.org/justinjmoses/msw-subscribe.png)](https://travis-ci.org/justinjmoses/msw-subscribe)
 
 Node application to scan for swell matching specific criteria at any break across the world. Uses [MSW](http://magicseaweed.com) forecast data. 
 
