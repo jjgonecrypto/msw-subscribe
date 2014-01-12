@@ -7,12 +7,13 @@
     "test": "mocha --recursive"
   },
   "keywords": [
-    ""
+    "msw", "subscriptions", "swell", "waves"
   ],
   "dependencies" : {
     "sendgrid": "=1.0.0-rc.1.0",
     "msw-api": "=0.0.8",
-    "q": "=0.9.7"
+    "q": "=0.9.7",
+    "validator": "=3.1.0"
   },
   "devDependencies": {
     "mocha": "=1.13.0",
@@ -22,6 +23,10 @@
   "engines": {
     "node": ">0.10.0"
   },
+  "bin": {
+    "msw": "lib/cli.js"
+  },
+  "preferGlobal": "true",
   "repository": {
     "type": "git",
     "url": "https://github.com/justinjmoses/msw-subscribe.git"
