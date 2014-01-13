@@ -2,9 +2,11 @@
 
 var chai = require('chai');
 var expect = chai.expect;
+var sinon = require('sinon');
 
 var nock = require('nock');
 var mocks = require('../node_modules/msw-api/test/mocks.js');
+var sendgrid =  require('sendgrid')('', '');
 
 var subscribe = require('../lib/subscribe.js');
 var Subscription = subscribe.Subscription;
@@ -101,6 +103,11 @@ describe('subscriber', function () {
             });
 
             describe('send()', function () {
+                var sendSpy;
+                beforeEach(function () {
+                    sinon.spy(sendgrid, 'send');
+                });
+
                 it('must send emails as required', function () {
                     subscription.query().then(function () {
                         subscription.send({ email: 'test@example.com' }).then(function () {
@@ -112,6 +119,8 @@ describe('subscriber', function () {
                         throw err;
                     });
                 });
+
+                it('must not send email if no forecast meets criteria');
             });
         });
     });
