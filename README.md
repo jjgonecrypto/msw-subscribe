@@ -3,43 +3,14 @@ msw-subscribe
 
 [![Build Status](https://travis-ci.org/justinjmoses/msw-subscribe.png)](https://travis-ci.org/justinjmoses/msw-subscribe)
 
-Node application to scan for swell matching specific criteria at any break across the world. Uses [MSW](http://magicseaweed.com) forecast data. 
-
+CLI too to scan for swell matching specific criteria at any break across the world. Uses [MSW](http://magicseaweed.com) forecast data and [msw-api](https://npmjs.org/package/msw-api) node module to query the MSW API. 
 
 ##Quickstart
 
-```javascript
-//Add the API to your module
-var msw = require('msw-subscription');
+```sh
+#install globally
+npm install -g msw-subscribe
 
-var subscription = mswSubscribe.create({
-  apiKey: 'YOUR API KEY',
-  units: 'us'
-});
-
-subscription.addSpot(2544,
-  {
-      minPeriod: 10,
-      minBreakingHeight: 3,
-      minSolidStars: 2,
-      maxWindSpeed: 15,
-      minSequence: 3
-  } //see msw-api package for query details
-});
-
-
-subscription.query().then(function () {
-  
-  subscription.send({ 
-    email: 'recipient@example.com', 
-    from: 'someone@example.com',
-    subject: 'incoming swell alert'
-  }).then(function () {
-    //sent
-  }, function (err) { 
-    console.log(err);
-  });
-}, function (err) {
-  console.log(err);
-});
+#run a query for spot 123 and if the forecast matches the query, email the recipients
+msw recipient:test@example.com spot:123 units:us minBreakingHeight:3 minSequence:5
 ```
