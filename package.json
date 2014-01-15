@@ -2,7 +2,7 @@
   "name": "msw-subscribe",
   "version": "0.0.1",
   "description": "node application to notify over email upcoming swell alerts that matches a certain criteria",
-  "main": "index.js",
+  "main": "lib/cli.js",
   "scripts": {
     "test": "mocha --recursive"
   },
