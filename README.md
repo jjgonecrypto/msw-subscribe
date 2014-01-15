@@ -14,3 +14,12 @@ npm install -g msw-subscribe
 #run a query for spot 123 and if the forecast matches the query, email the recipients
 msw recipient:test@example.com spot:123 units:us minBreakingHeight:3 minSequence:5
 ```
+
+##Required config
+
+```sh
+#Environment variables
+export MSW_API_KEY='YOUR API KEY'
+export SENDGRID_USERNAME='YOUR SENDGRID USERNAME'
+export SNEDGRID_PASSWORD='YOUR SENDGRID PASSWORD'
+```
