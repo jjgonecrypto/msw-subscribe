@@ -1,5 +1,14 @@
 {
-    "286": "Manasquan, NJ",
-    "2544": "Surfers Beach, PR",
-    "439": "Punta Roca, El Sal"
+    "286": {
+        "name": "Manasquan, NJ",
+        "mswLinkName": "Manasquan"
+    },
+    "2544": {
+        "name": "Surfers Beach, PR",
+        "mswLinkName": "Surfers-Beach-Puerto-Rico"
+    },
+    "439": {
+        "name": "Punta Roca, El Salvador",
+        "mswLinkName": "Punta-Roca"
+    }
 }
