@@ -11,7 +11,7 @@
   ],
   "dependencies" : {
     "sendgrid": "=1.0.0-rc.1.0",
-    "msw-api": "=0.0.11",
+    "msw-api": "=0.0.12",
     "q": "=0.9.7",
     "validator": "=3.1.0",
     "colors": "=0.6.2"
