@@ -4,9 +4,8 @@ var chai = require('chai');
 var expect = chai.expect;
 var sinon = require('sinon');
 
-var nock = require('nock');
-var mocks = require('../node_modules/msw-api/test/mocks.js');
 var sendgrid =  require('sendgrid')('', '');
+var msw = require('msw-api');
 
 var subscribe = require('../lib/subscribe.js');
 var Subscription = subscribe.Subscription;
@@ -41,15 +40,12 @@ describe('subscriber', function () {
 
     describe('main functionality', function () {
         //todo: port this to msw-api 0.0.9
-        function mockSpot(spotId, units, response) {
-            var mocked = nock('http://magicseaweed.com').get('/api/' + config.apiKey + '/forecast/?spot_id=' + spotId + '&units=' + units);
-            mocked.reply(response, (response === 200) ? mocks[spotId] : undefined);
-        }
+        var mocks = msw.mockCallsUsing(config.apiKey);
 
         beforeEach(function () {
             subscription = subscribe.create(config);
             spots.forEach(function (spot) {
-                mockSpot(spot.id, 'us', 200);
+                mocks.mockSpot(spot.id, 'us', 200);
             });
         });
 
@@ -103,7 +99,7 @@ describe('subscriber', function () {
             });
 
             describe('send()', function () {
-                var sendSpy;
+                //var sendSpy;
                 beforeEach(function () {
                     sinon.spy(sendgrid, 'send');
                 });
