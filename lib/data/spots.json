@@ -1,14 +1,34 @@
 {
+    "383": {
+        "name": "Long Beach, NY",
+        "mswLinkName": "Long-Beach"
+    },
     "386": {
         "name": "Manasquan, NJ",
         "mswLinkName": "Manasquan"
     },
-    "2544": {
-        "name": "Surfers Beach, PR",
-        "mswLinkName": "Surfers-Beach-Puerto-Rico"
+    "440": {
+        "name": "El Sunzal, El Salvador",
+        "mswLinkName": "El-Sunzal"
     },
-    "439": {
-        "name": "Punta Roca, El Salvador",
-        "mswLinkName": "Punta-Roca"
+    "450": {
+        "name": "Litte Malibu, Puerto Rico",
+        "mswLinkName": "Little-Malibu-Rincon"
+    },
+    "478": {
+        "name": "Encuentro, Domenican Republic",
+        "mswLinkName": "Encuentro"
+    },
+    "939": {
+        "name": "Popoyo, Nicaragua",
+        "mswLinkName": "Popoyo"
+    },
+    "2456": {
+        "name": "Playa Guiones, Costa Rica",
+        "mswLinkName": "Playa-Guiones"
+    },
+    "2544": {
+        "name": "Surfers Beach, Puerto Rico",
+        "mswLinkName": "Surfers-Beach-Puerto-Rico"
     }
 }
