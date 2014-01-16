@@ -34,9 +34,3 @@ msw recipient:test@example.com,another@example.com spot:123 units:us minBreaking
 * [Optional] `fromName`: Email of sender
 * [Optional] `replyTo`: Email to reply to (default of `fromName` if exists)
 * Any parameter to `Forecast.where()` - see [msw-api](https://github.com/justinjmoses/msw-api#forecastwhere-query-forecast-data) for more details
-
-##Required config
-
-```sh
-
-```
