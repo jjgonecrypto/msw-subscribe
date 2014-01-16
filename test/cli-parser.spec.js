@@ -17,7 +17,7 @@ describe('cli-parser', function () {
         expect(function () {
             parser(['recipient:test@example.com', 'spot:123']);
         }).not.to.throw(Error);
-        expect(parser(['recipient:test@example.com', 'spot:123']).recipient).to.equal('test@example.com');
+        expect(parser(['recipient:james@test.com', 'spot:123']).spot).to.equal(123);
     });
 
     it('must contain a valid recipient email', function () {
@@ -33,6 +33,13 @@ describe('cli-parser', function () {
         expect(function () {
             parser(['recipient:james@test.com', 'spot:123']);
         }).not.to.throw(Error);
-        expect(parser(['recipient:james@test.com', 'spot:123']).spot).to.equal(123);
+        expect(function () {
+            parser(['recipient:james@test.com,blah', 'spot:123']);
+        }).to.throw(Error);
+        expect(function () {
+            parser(['recipient:james@test.com,blah@example.com', 'spot:123']);
+        }).not.to.throw(Error);
+        expect(parser(['recipient:test@example.com', 'spot:123']).recipient).to.contain('test@example.com');
+        expect(parser(['recipient:test@example.com,another@test.com', 'spot:123']).recipient).to.contain('another@test.com');
     });
 });
