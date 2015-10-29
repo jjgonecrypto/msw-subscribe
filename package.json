@@ -1,6 +1,6 @@
 {
   "name": "msw-subscribe",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "node application to notify over email upcoming swell alerts that matches a certain criteria",
   "main": "lib/cli.js",
   "scripts": {
