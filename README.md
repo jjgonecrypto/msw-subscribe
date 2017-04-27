@@ -3,14 +3,14 @@ msw-subscribe
 
 [![Build Status](https://travis-ci.org/justinjmoses/msw-subscribe.png)](https://travis-ci.org/justinjmoses/msw-subscribe)
 
-CLI too to scan for swell matching specific criteria at any break across the world. Uses [MSW](http://magicseaweed.com) forecast data and [msw-api](https://npmjs.org/package/msw-api) node module to query the MSW API. 
+CLI too to scan for swell matching specific criteria at any break across the world. Uses [MSW](http://magicseaweed.com) forecast data and [msw-api](https://npmjs.org/package/msw-api) node module to query the MSW API.
 
-##Usage requirements
+## Usage requirements
 
 * [MSW API Key](http://magicseaweed.com/developer/forecast-api)
 * [SendGrid account](http://sendgrid.com)
 
-##Quickstart
+## Quickstart
 
 ```sh
 #install globally
@@ -25,7 +25,7 @@ export SNEDGRID_PASSWORD='YOUR SENDGRID PASSWORD'
 msw recipient:test@example.com,another@example.com spot:123 units:us minBreakingHeight:3 minSequence:5
 ```
 
-###Valid parameters
+### Valid parameters
 
 * __[Required]__ `recipient`: comma-delimited list of emails to send to
 * __[Required]__ `spot`: MSW spot ID for the break
