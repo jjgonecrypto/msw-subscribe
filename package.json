@@ -16,7 +16,7 @@
     "colors": "0.6.2",
     "msw-api": "0.1.0",
     "q": "0.9.7",
-    "sendgrid": "1.0.0-rc.1.0",
+    "sendgrid": "1.2.2",
     "validator": "3.1.0"
   },
   "devDependencies": {
